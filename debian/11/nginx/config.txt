@@ -1,0 +1,16 @@
+apt install gnupg2
+
+wget https://nginx.org/keys/nginx_signing.key
+
+apt-key add nginx_signing.key
+
+vim /etc/apt/sources.list.d/nginx.list
+
+deb https://nginx.org/packages/mainline/debian/ bullseye nginx
+deb-src https://nginx.org/packages/mainline/debian/ bullseye nginx
+
+apt update
+
+apt install nginx
+
+systemctl start nginx && systemctl enable nginx
